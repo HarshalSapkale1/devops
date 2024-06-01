@@ -1,0 +1,270 @@
+DevOps cloud learning hub
+
+Sudo -i			: to switch from ec2-user to root user
+sudo su / sudo su -	: to switch from ec2-user to root user
+logout (ctrl + d)	: to switch from root user to ec2-user
+cat /proc/cpuinfo	: to show cpu information
+lscpu			: to show cpu information
+cat /proc/meminfo	: to show memory information
+lsmem			: to show memory information
+fdisk			: to show ROM/volume information
+lsblk			: to show ROM/Volume information
+ifconfig		: to show ip address
+ip addr			: to show ip address
+ip addr show		: to show ip address
+hostname -i		: to show ip address( very precise it shows only ip address)
+clear / ctrl + l 	: to clear the console
+
+
+==============================================================================================
+
+
+FILE COMMAND
+
+touch fileName		: to create file
+ls/ll			: to show all files / list of files
+cat fileNAme 		: to show content in a file
+cat>>fileName		: to insert the content in file
+enter + ctrl +d 	: to save and exit from file
+cp file1 file2		: copies content from file1 to file 2
+mv file1 to file2	: to rename file1 to file2
+rm file1		: to remove file1
+rm file1 -f		: to remove file1 forcefully
+rm * -f 		: to remove all files forcefully
+touch file{1..100}	: to create 100 file at a time
+cat file1 >> file2	: to copy content from file1 to file2 without overriding
+
+
+==============================================================================================
+
+
+How to check server performance
+
+top 			: to check server performance showing memory utilization
+head file1		: shows first 10 lines of a file1
+head -5 file1		: shows first 5 lines of a file1
+head -15 file1		: shows first 15 lines of a file1
+tail file1		: shows bottom 10 lines of file
+tail -5 file1		: shows bottom 5 lines of a file1
+tail -15 file1		: shows bottom 15 lines of a file1
+sed -n '5,15p'	file1	: to print line 5 to 15
+wc fileName		: to show lines, words and characters.
+
+
+
+==============================================================================================
+
+
+EDITORS: to edit the files.
+
+types: 
+1. VIM/vi
+2. nano
+
+
+i 			: insert content in a file
+esc			: to come out of insert mode
+
+
+1. command mode
+2. insert mode
+3. save mode
+
+
+3. SAVE MODE:
+
+:w			: to save
+:q			: to quit
+:wq			: to save and quit
+:wq!			: to save and quit forcefully
+
+
+2. INSERT MODE
+i			: to insert command
+A			: End of the line
+I 			: starting of line
+O			: to create new line above existing
+o			: to create new line below existing
+
+
+1. COMMAND MODE :
+
+gg			: top of file
+shift g			: bottom of line
+:set number		: to show number of lines inside file
+:n			: to go specific line
+yy			: to copy file
+10yy			: to copy 10 lines
+p			: to paste
+5pp			: to paste 5 times
+dd			: to delete
+10dd			: to delete 10 lines
+u			: UNDO
+ctrl r			: Redo
+/word			: to search for a word
+
+
+==============================================================================================
+
+
+PERMISSION
+
+
+-rw-r--r-- 
+
+
+types :
+1.read	: r	: 4
+2.write	: w	: 2
+3.executable :x	: 1
+
+
+categories : 
+user 	: rw-	: 6
+group	: r--	: 4
+others	: r--	: 4
+
+Method 1 : chmod 567 fileName
+Method 2 : chmod u=rwx,g=rw,o=rx fileName
+
+
+
+GREP : Global regular expression print
+to search words in file
+
+
+grep raham file1 : to search raham word
+grep raham file1 -i : to search raham word (avoid case sensitive)
+grep raham file1 -ic : to search raham word(-c word count)
+grep raham file1 -v : to print lines without raham word (-v to avoid) 
+| :  pipe symbol : here first command is the inpute for second command (eg . cat file1 | grep raham)
+ 
+
+
+==============================================================================================
+
+SED : STREAM EDITOR
+
+used to replace the words in file
+
+sed 's/word1/word2/' fileName : word1 is replaced by word2
+sed 's/word1/word2;s/word3/word4/' fileName : word1 is replaced by word2 & word3 is replaced by word3
+sed '2c type' fileName	: replace 2nd line with type word 
+sed -n '5,12p' : to print from line 5 to 12
+sed -n '10p' : to print line number 10
+
+
+:%s/word1/word2/ :  word1 is replaced by word2
+:%s/word1/word2/g : word1 is replaced by word2 if we have repeated words
+
+
+===================================================================================================
+
+GIT : GLOBAL INFORMATION TRACKER
+
+VCS : VERSION CONTROL SYSTEM
+it will keep the code seperately for each version
+
+REPO : It is a folder where we store our code
+
+INTRO :
+git is used to track the files
+it will maintain versions of the same file
+It is platform independent
+It is free and open source
+They can handle larger project efficiently
+It is 3rd generation of vcs
+It is written in C programming
+It came on the year 2005
+
+
+CVCS : CENTRALISED VERSION CONTROL SYSTEM
+eg : SVN  : it can store code on single repo
+
+DVCS : DISTRIBUTED VERSION CONTROL SYSTEM
+eg : GIT : t can store code on multiple repo
+
+ROLLBACK : going back to previous version of the application
+
+
+STAGES : 
+WORKING DIRECTORY : where we write our source code
+STAGING AREA : we track files here
+REPOSITORY : where we store tracked source code
+
+
+WORKING WITH GIT :
+yum install git -y
+[yum = pkg manager ,  install=action , git=pkg name , -y=yes]
+git -v :  to check version
+git init = to install .git (local repo)
+
+to create file : vim index.html
+to check status : git status
+to track file : git add index.html
+to check status : git status
+to store file : git commit -m "commit-message" index.html
+
+create a file--> add--> commit
+
+
+to show commits :  git log
+to show last 2 commit : git log -2
+to show commit in single line : git log -2 --oneline
+
+
+git config user.name  "Harshal" :  to configure username
+git config user.email "harshalsapkale321@gmail.com" :   to configure user email
+
+
+git show : used to show the files which are attached to commits.
+git log --oneline
+git show commit_id
+
+git branch : to list all branches
+
+
+=========================================================================================================================
+
+MERGE 
+adding the files between one branch to another branch 
+
+
+git merge branch_name
+
+merge vs rebase
+merge will show files, rebase will not show files
+merge will now branches rebase will show branches
+merge will show entire history rebase will not.
+
+
+STASH to hide file which are not commited
+note : file needs to be tracked but not commited
+
+
+merge conflict
+when we try to merge 2 branches with same file and different content then merge conflict will raise
+so we need to resolve conflict manually
+
+
+cherry-pick
+
+we can merge only specificfiles from one branch to another
+with the help of commit_id
+
+
+git revert branch_name
+
+
+
+
+
+git --stat		: entire commit history
+git --patch		: entire commit history
+
+
+
+
+git revert : to undo merging
+git revert branch_merge
+
